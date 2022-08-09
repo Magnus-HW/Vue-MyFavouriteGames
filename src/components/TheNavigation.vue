@@ -34,21 +34,23 @@ function myEventHandler(e: any) {
 
 <template>
   <nav id="nav">
-    <div class="nav list">
-      <RouterLink :to="{ name: 'Home' }">Home</RouterLink>
-      <RouterLink
-        v-for="genre in genreState"
-        :key="genre"
-        :to="{
-          name: 'genre.show',
-          params: {
-            genre: genre,
-          },
-        }"
-        >{{ genre }}</RouterLink
-      >
-    </div>
-    <DropNav v-if="showDropNav" />
+    <KeepAlive>
+      <div class="nav list" v-if="!showDropNav">
+        <RouterLink :to="{ name: 'Home' }">Home</RouterLink>
+        <RouterLink
+          v-for="genre in genreState"
+          :key="genre"
+          :to="{
+            name: 'genre.show',
+            params: {
+              genre: genre,
+            },
+          }"
+          >{{ genre }}</RouterLink
+        >
+      </div>
+      <DropNav v-else />
+    </KeepAlive>
   </nav>
 </template>
 

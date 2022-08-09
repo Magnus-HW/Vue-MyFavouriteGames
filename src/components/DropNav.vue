@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useGamesStore } from "@/store/store.js";
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, onActivated, onMounted, ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 const route = useRoute();
 const router = useRouter();
@@ -11,7 +11,7 @@ const showMenu = ref(false);
 const menuHeight = ref("0");
 
 //calculate the height of the drop down menu
-onMounted(() => {
+onActivated(() => {
   //el will always exist
   const el: any = document.getElementById("selected");
   const styles = window.getComputedStyle(el);
@@ -90,24 +90,18 @@ const selectedItem = computed(() => {
 
 .dropdown-enter-active {
   transition: all 1s;
-  /* max-height: 1000px; */
   max-height: v-bind(menuHeight);
 }
 
 .dropdown-leave-active {
   transition: all 1s;
-  /* max-height: 1000px; */
   max-height: v-bind(menuHeight);
 }
-/* .dropdown-leave-from,
-.dropdown-enter-to {
-  background-color: black;
-} */
+
 .dropdown-enter-from,
 .dropdown-leave-to {
   overflow: hidden;
   max-height: 0;
-  /* background-color: aquamarine; */
-  /* opacity: 0; */
+
 }
 </style>
