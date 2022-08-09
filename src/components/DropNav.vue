@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { useGamesStore } from "@/store/store.js";
-import { computed, onActivated, onMounted, ref, watch } from "vue";
+import { computed, onActivated, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 const route = useRoute();
-const router = useRouter();
 
 const genres = useGamesStore().genres; //array of genres
 
