@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useGamesStore } from "@/store/store.js";
 import { computed, onActivated, ref } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 const route = useRoute();
 
 const genres = useGamesStore().genres; //array of genres
@@ -101,6 +101,5 @@ const selectedItem = computed(() => {
 .dropdown-leave-to {
   overflow: hidden;
   max-height: 0;
-
 }
 </style>

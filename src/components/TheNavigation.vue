@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useGamesStore } from "@/store/store.js";
 import DropNav from "@/components/DropNav.vue";
-import { computed, onMounted, ref, watch } from "vue";
+import { onMounted, ref } from "vue";
 
 const genreState = useGamesStore().genres;
 const showDropNav = ref(false);

@@ -10,6 +10,4 @@ const gamesStore = useGamesStore();
   </div>
 </template>
 
-<style>
-
-</style>
+<style></style>
