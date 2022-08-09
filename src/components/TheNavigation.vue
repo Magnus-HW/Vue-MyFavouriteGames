@@ -1,9 +1,22 @@
 <script setup lang="ts">
 import { useGamesStore } from "@/store/store.js";
 import DropNav from "@/components/DropNav.vue";
+import { computed, onMounted, ref, watch } from "vue";
 
 const genreState = useGamesStore().genres;
+const showDropNav = ref(false);
 
+onMounted(() => {
+  window.addEventListener("resize", myEventHandler);
+});
+
+function myEventHandler(e: any) {
+  if (window.innerWidth < 620) {
+    showDropNav.value = true;
+  } else {
+    showDropNav.value = false;
+  }
+}
 // const showDropMenu = ref(false);
 // watch(showDropMenu, () => {
 //   console.log(showDropMenu.value);
@@ -35,7 +48,7 @@ const genreState = useGamesStore().genres;
         >{{ genre }}</RouterLink
       >
     </div>
-    <DropNav />
+    <DropNav v-if="showDropNav" />
   </nav>
 </template>
 

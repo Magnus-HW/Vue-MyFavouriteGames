@@ -20,6 +20,7 @@ onMounted(() => {
     parseFloat(styles["paddingTop"]) +
     parseFloat(styles["paddingBottom"]);
   menuHeight.value = el ? `${elHeight * genres.length - 1}px` : "0";
+  console.log(menuHeight.value);
 });
 
 const selectedItem = computed(() => {
@@ -66,11 +67,7 @@ const selectedItem = computed(() => {
 .nav.dropdown #options * {
   border-bottom: 1px solid;
 }
-#selected {
-  border-bottom: 1px solid;
-  padding: 0.5rem;
-  text-align: center;
-}
+
 #options {
   position: absolute;
   top: 100%;
@@ -85,6 +82,10 @@ const selectedItem = computed(() => {
   text-align: center;
   text-decoration: none;
   font-size: 1.6rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid;
+  padding: 0.5rem;
+  text-align: center;
 }
 
 .dropdown-enter-active {
