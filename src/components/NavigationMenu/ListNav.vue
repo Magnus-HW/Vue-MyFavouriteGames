@@ -34,10 +34,14 @@ const props = defineProps<{
   border-bottom: 1px solid;
 }
 a {
+  transition: all 0.4s, color 0.4s;
   text-decoration: none;
   font-size: 1.6rem;
 }
-/* #select-nav {
-  display: none;
-} */
+a:hover {
+  border-left: 8px solid #cc537b;
+}
+.router-link-exact-active {
+  border-left: 8px solid #cc537b;
+}
 </style>
