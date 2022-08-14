@@ -11,6 +11,9 @@ const props = defineProps<{
 const gameStore = useGamesStore();
 
 const gamesToShow = computed(() => {
+  if (props.genre == "All") {
+    return [...gameStore.games].sort(alphabeticalSort);
+  }
   return gameStore.games
     .filter((game) =>
       game.info.genres.includes(capitalizeFirstLetter(props.genre))

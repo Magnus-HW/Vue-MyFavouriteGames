@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useGamesStore } from "@/store/store.js";
-import { imagesFolderName } from "@/utility/utility.js";
+import { pickOutImagesFolderName } from "@/utility/utility.js";
 import CarouselApp from "../components/carousel/CarouselApp.vue";
 
 const props = defineProps<{
@@ -10,7 +10,9 @@ const props = defineProps<{
 const gameStore = useGamesStore();
 const theGame = gameStore.games.find((game) => game.id === props.id);
 
-const imagesFolder = imagesFolderName(theGame?.poster as string) as string;
+const imagesFolder = pickOutImagesFolderName(
+  theGame?.poster as string
+) as string;
 
 const title = theGame?.title;
 const poster = theGame?.poster;
@@ -32,13 +34,13 @@ const images = theGame?.images as string[];
       </div>
 
       <div class="info">
-        <p><b>Title: </b> {{ title }}</p>
+        <p><b>Title: </b>{{ title }}</p>
         <p>
           <b>Genre: </b>
           <span v-for="genre in genres" :key="genre">{{ genre }}</span>
         </p>
-        <p><b>Released date: </b> {{ releaseDate }}</p>
-        <p><b>Developer: </b> {{ developer }}</p>
+        <p><b>Released date: </b>{{ releaseDate }}</p>
+        <p><b>Developer: </b>{{ developer }}</p>
       </div>
 
       <div class="game-description intend">

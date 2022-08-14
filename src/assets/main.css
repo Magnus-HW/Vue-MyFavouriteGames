@@ -50,11 +50,10 @@ a {
 }
 
 /* Colors */
-html {
-
-}
-#app {
-  /* background-color: #63C4C4; */
+#selected,
+#options a,
+#selected a { 
+  color: white;
 }
 /* Header */
 #main-header {

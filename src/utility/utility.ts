@@ -9,7 +9,8 @@ export function alphabeticalSort(g1: IGame, g2: IGame) {
   else return 1;
 }
 
-export function imagesFolderName(str: string) {
+//pick out folder name from poster name, poster name contains folder name
+export function pickOutImagesFolderName(str: string) {
   const foldareName = str.match(/.+?(?=-)/);
-  return foldareName ? foldareName[0] : null;
+  return foldareName ? foldareName[0] : "";
 }

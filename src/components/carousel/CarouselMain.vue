@@ -8,9 +8,9 @@ const props = defineProps<{
   slides: string[];
 }>();
 
-const currentSlide = ref(0);
-const slideInterval = ref(0);
-const direction = ref("right");
+const currentSlide = ref<number>(0);
+const slideInterval = ref<ReturnType<typeof setTimeout>>();
+const direction = ref<string>("right");
 const slideIntervalTime = 4000;
 const setCurrentSlide = (index: number) => {
   currentSlide.value = index;
@@ -49,6 +49,7 @@ function prev() {
   _prev();
   stopSlideTimer();
 }
+
 function _next(step = 1) {
   const index =
     currentSlide.value < props.slides.length - 1
@@ -64,9 +65,6 @@ function next() {
 
 onMounted(() => {
   startSlideTimer();
-});
-onBeforeMount(() => {
-  stopSlideTimer();
 });
 </script>
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterView } from "vue-router";
-import TheNavigation from "./components/TheNavigation.vue";
+import TheNavigation from "./components/NavigationMenu/TheNavigation.vue";
 import MainHeader from "./components/MainHeader.vue";
 import { useGamesStore } from "./store/store";
 
@@ -13,7 +13,7 @@ useGamesStore().fetchGames();
   </header>
   <div id="wrapper">
     <TheNavigation />
-    <RouterView />
+    <router-view />
   </div>
 </template>
 

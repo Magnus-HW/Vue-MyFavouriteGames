@@ -1,5 +1,5 @@
 import type { IGame, IState } from "@/types";
-import { getSoureseData } from "@/api/gamesAPI";
+import { getSourceData } from "@/api/gamesAPI";
 import { defineStore } from "pinia";
 import { capitalizeFirstLetter, alphabeticalSort } from "@/utility/utility";
 
@@ -20,7 +20,7 @@ export const useGamesStore = defineStore({
   actions: {
     async fetchGames() {
       try {
-        this.games = await getSoureseData();
+        this.games = await getSourceData();
       } catch (err) {
         if (err instanceof Error) console.log(err.message);
       }

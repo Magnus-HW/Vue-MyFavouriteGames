@@ -1,13 +1,13 @@
 import GameDetailsVue from "@/views/GameDetails.vue";
+import { generate, helperNameMap } from "@vue/compiler-core";
 import { createRouter, createWebHistory, useRoute } from "vue-router";
-import HomeView from "../views/HomeView.vue";
 
-const routes = [
-  { path: "/", redirect: "/Home" },
+export const routes = [
   {
-    path: "/Home",
-    name: "Home",
-    component: HomeView,
+    path: "/",
+    redirect: () => {
+      return { name: "genre.show", params: { genre: "All" } };
+    },
   },
   {
     path: "/:genre",

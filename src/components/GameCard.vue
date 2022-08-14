@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { IGame } from "@/types.js";
-import { imagesFolderName } from "@/utility/utility.js";
+import { pickOutImagesFolderName } from "@/utility/utility.js";
 
 const props = defineProps<{ game: IGame }>();
-const folderName = imagesFolderName(props.game.poster);
+const folderName = pickOutImagesFolderName(props.game.poster);
 </script>
 
 <template>

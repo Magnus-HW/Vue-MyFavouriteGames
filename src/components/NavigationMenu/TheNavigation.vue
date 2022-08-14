@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { useGamesStore } from "@/store/store.js";
-import DropNav from "@/components/DropNav.vue";
+import DropNav from "@/components/NavigationMenu/DropNav.vue";
 import { onMounted, ref } from "vue";
+import ListNav from "./ListNav.vue";
 
-const genreState = useGamesStore().genres;
+const genres = useGamesStore().genres;
 const showDropNav = ref(false);
 
 onMounted(() => {
   window.addEventListener("resize", myEventHandler);
 });
 
-function myEventHandler(e: any) {
+function myEventHandler() {
   if (window.innerWidth < 620) {
     showDropNav.value = true;
   } else {
@@ -35,42 +36,8 @@ function myEventHandler(e: any) {
 <template>
   <nav id="nav">
     <KeepAlive>
-      <div class="nav list" v-if="!showDropNav">
-        <RouterLink :to="{ name: 'Home' }">Home</RouterLink>
-        <RouterLink
-          v-for="genre in genreState"
-          :key="genre"
-          :to="{
-            name: 'genre.show',
-            params: {
-              genre: genre,
-            },
-          }"
-          >{{ genre }}</RouterLink
-        >
-      </div>
+      <ListNav :genres="genres" v-if="!showDropNav" />
       <DropNav v-else />
     </KeepAlive>
   </nav>
 </template>
-
-<style scoped>
-.nav {
-  margin-bottom: 1rem;
-}
-.nav.list {
-  text-align: center;
-  margin-right: 1rem;
-}
-.nav.list a {
-  padding: 0.5rem;
-  border-bottom: 1px solid;
-}
-a {
-  text-decoration: none;
-  font-size: 1.6rem;
-}
-/* #select-nav {
-  display: none;
-} */
-</style>

@@ -34,13 +34,13 @@ const selectedItem = computed(() => {
       Selected {{ selectedItem }}
     </div>
 
-    <Transition name="dropdown" @click="showMenu = false">
-      <div id="options" v-if="showMenu">
+    <Transition name="dropdown">
+      <div id="options" v-if="showMenu" @click="showMenu = false">
         <RouterLink
-          :to="{ name: 'Home' }"
-          key="Home"
-          v-show="selectedItem !== 'Home'"
-          >Home
+          :to="{ name: 'genre.show', params: { genre: 'All' } }"
+          key="All"
+          v-show="selectedItem !== 'All'"
+          >All
         </RouterLink>
         <RouterLink
           v-for="genre in genres"
@@ -77,7 +77,6 @@ const selectedItem = computed(() => {
 #selected,
 #options a,
 #selected a {
-  color: white;
   text-align: center;
   text-decoration: none;
   font-size: 1.6rem;

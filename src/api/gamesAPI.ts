@@ -1,6 +1,6 @@
 import type { IGame } from "@/types";
 
-export async function getSoureseData(): Promise<IGame[]> {
+export async function getSourceData(): Promise<IGame[]> {
   const sourceData = await import("@/data.json");
   return sourceData.games;
 }

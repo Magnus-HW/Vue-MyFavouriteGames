@@ -1,6 +1,6 @@
 <template>
   <div id="main-header">
-    <h1>My Favourite games</h1>
+    <h1>My Favourite Games</h1>
   </div>
 </template>
 
